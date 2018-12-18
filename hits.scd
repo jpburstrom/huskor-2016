@@ -1,6 +1,6 @@
 (
 ~loadBuffers = {
-    ~buffers = "../render/hits/*.wav".resolveRelative.pathMatch.collect { |x|
+    ~buffers = "samples/hits/*.wav".resolveRelative.pathMatch.collect { |x|
         Buffer.read(s, x);
     };
 };
@@ -222,7 +222,7 @@ fork {
             {
                 topEnvironment[\loadBuffers].value;
                 Pfindur(999, Pdef("hits%".format(n).asSymbol)).play;
-            }.scoreClockRender("../render/popups/popup%_%.wav".format(n, date).resolveRelative, duration, 10, 48000, action: {
+            }.scoreClockRender("samples/popups/popup%_%.wav".format(n, date).resolveRelative, duration, 10, 48000, action: {
                 cond.unhang;
 
             });
@@ -243,7 +243,7 @@ fork {
             {
                 topEnvironment[\loadBuffers].value;
                 Pfindur(999, Pdef("hits%".format(n).asSymbol)).play;
-            }.scoreClockRender("../render/popups/popup%_%.wav".format(n, date).resolveRelative, duration, 10, 48000, action: {
+            }.scoreClockRender("samples/popups/popup%_%.wav".format(n, date).resolveRelative, duration, 10, 48000, action: {
                 cond.unhang;
 
             });
@@ -280,6 +280,6 @@ Pdef(\hits5_2, Pbind(
 {
     ~loadBuffers.value;
     Pfindur(180*130/60, Pdef(\hits5_2)).play;
-}.scoreClockRender("../render/popups/popup5_2_%.wav".format(Date.localtime.stamp).resolveRelative, 200, 10, 44100)
+}.scoreClockRender("samples/popups/popup5_2_%.wav".format(Date.localtime.stamp).resolveRelative, 200, 10, 44100)
 
 )

@@ -1,9 +1,9 @@
 (
 ~loadBuffers = {
-    ~buffers = "../render/hits/*.wav".resolveRelative.pathMatch.collect { |x|
+    ~buffers = "samples/hits/*.wav".resolveRelative.pathMatch.collect { |x|
         Buffer.read(s, x);
     };
-    ~onsetBuf = Buffer.read(s, "../render/filmceller/film-anslag.wav".resolveRelative);
+    ~onsetBuf = Buffer.read(s, "samples/filmceller/film-anslag.wav".resolveRelative);
 
 
     };

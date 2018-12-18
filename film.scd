@@ -1,9 +1,9 @@
 (
 ~loadBuffers = {
-    ~buffers = "../render/hits/*.wav".resolveRelative.pathMatch.collect { |x|
+    ~buffers = "samples/hits/*.wav".resolveRelative.pathMatch.collect { |x|
         Buffer.read(s, x);
     };
-    ~onsetBuf = Buffer.read(s, "../render/filmceller/film-anslag.wav".resolveRelative);
+    ~onsetBuf = Buffer.read(s, "samples/filmceller/film-anslag.wav".resolveRelative);
 
 
     };
@@ -73,7 +73,7 @@ fork {
             {
                 topEnvironment[\loadBuffers].value;
                 Pfindur(999, Pdef(def)).play;
-            }.scoreClockRender("../render/film/%_%.wav".format(def, date).resolveRelative, duration, 10, 48000, action: {
+            }.scoreClockRender("samples/film/%_%.wav".format(def, date).resolveRelative, duration, 10, 48000, action: {
                 cond.unhang;
 
             });

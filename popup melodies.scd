@@ -1,9 +1,9 @@
 (
 ~loadBuffers = {
-    ~buffers = "../render/hits/*.wav".resolveRelative.pathMatch.collect { |x|
+    ~buffers = "samples/hits/*.wav".resolveRelative.pathMatch.collect { |x|
         Buffer.read(s, x);
     };
-    ~onsetBuf = Buffer.read(s, "../render/filmceller/film-anslag.wav".resolveRelative);
+	~onsetBuf = Buffer.read(s, "samples/filmceller/film-anslag.wav".resolveRelative);
 
 
     };
@@ -140,7 +140,7 @@ Pdef(\popup_solodrone, Pbind(
 {
     ~loadBuffers.value;
     Pfindur(200*130/60, Pdef(\popup_solodrone)).play;
-}.scoreClockRender("../render/popups/popup_solodrone_%.wav".format(Date.localtime.stamp).resolveRelative, 200, 10, 44100)
+}.scoreClockRender("samples/popups/popup_solodrone_%.wav".format(Date.localtime.stamp).resolveRelative, 200, 10, 44100)
 
 )
 
@@ -173,6 +173,6 @@ Pdef(\popup_solodrone2, Pbind(
 {
     ~loadBuffers.value;
     Pfindur(200*130/60, Pdef(\popup_solodrone2)).play;
-}.scoreClockRender("../render/popups/popup_solodrone2_%.wav".format(Date.localtime.stamp).resolveRelative, 200, 10, 44100)
+}.scoreClockRender("samples/popups/popup_solodrone2_%.wav".format(Date.localtime.stamp).resolveRelative, 200, 10, 44100)
 
 )
